@@ -1,9 +1,7 @@
 let output = [], count = 0;
-
 function fizzBuzz()
 {
     count = count + 1;
-
     if ((count % 3 == 0) && (count % 5 == 0)) 
         output.push("FizzBuzz");
     else
@@ -17,7 +15,6 @@ function fizzBuzz()
             else
                 output.push(count);
         }
-
     }
     console.log(output);
 }
