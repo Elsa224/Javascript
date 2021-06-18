@@ -1,7 +1,4 @@
 //Fibonacci in JS
-
-//fibonacciGenarator(0) = 0 et fibonacciGenarator(1) = 1
-
 function fibonacciGenerator(n) 
 {
     let outputs = [], sum = 0, i = 0;
