@@ -1,3 +1,8 @@
+/**
+ * Date : June 17, 2021
+ * Author : Elsa Z.
+ */
+
 // Drum buttons
 let drumButtons = document.querySelectorAll( ".drum" );
 
