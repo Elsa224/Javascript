@@ -1,15 +1,61 @@
 // Drum buttons
 let drumButtons = document.querySelectorAll( ".drum" );
 
-// Audios'list
-let audios = [ "tom-1", "tom-2", "tom-3", "tom-4", "snare", "crash", "kick-bass" ];
-
 // Add click eventListener to all the drum buttons
 for ( let i = 0; i < drumButtons.length; i++) 
-    drumButtons[i].addEventListener( "click", 
+    drumButtons[ i ].addEventListener( "click", 
     function () 
     {
-        let audioSource = "sounds/" + audios[i] + ".mp3"; 
-        let audio = new Audio( audioSource );
-        audio.play();
+        let buttonInnerHTML = this.innerHTML;   // Return the "text" in the button
+        makeSound(buttonInnerHTML);
     } );
+
+// Event listener on the keyboard
+document.addEventListener( "keydown", function ( Event ) 
+{
+    makeSound(Event.key); 
+} );
+
+// Each key letter to each sound function
+function makeSound(key)
+{
+    switch (key) {
+        case "w":
+            let tom1 = new Audio( "sounds/tom-1.mp3" );
+            tom1.play();
+            break;
+        
+        case "a":
+            let tom2 = new Audio( "sounds/tom-2.mp3" );
+            tom2.play();
+            break;
+
+        case "s":
+            let tom3 = new Audio( "sounds/tom-3.mp3" );
+            tom3.play();
+            break;
+
+        case "d":
+            let tom4 = new Audio( "sounds/tom-4.mp3" );
+            tom4.play();
+            break;
+
+        case "j":
+            let snare = new Audio( "sounds/snare.mp3" );
+            snare.play();
+            break;
+
+        case "k":
+            let crash = new Audio( "sounds/crash.mp3" );
+            crash.play();
+            break;
+
+        case "l":
+            let kickBass = new Audio( "sounds/kick-bass.mp3" );
+            kickBass.play();
+            break;
+    
+        default:
+            break;
+    }
+}
