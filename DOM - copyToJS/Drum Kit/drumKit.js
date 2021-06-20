@@ -7,22 +7,24 @@
 let drumButtons = document.querySelectorAll( ".drum" );
 
 // Add click eventListener to all the drum buttons
-for ( let i = 0; i < drumButtons.length; i++) 
+for ( let i = 0; i < drumButtons.length; i++ ) 
     drumButtons[ i ].addEventListener( "click", 
     function () 
     {
         let buttonInnerHTML = this.innerHTML;   // Return the "text" in the button
-        makeSound(buttonInnerHTML);
+        makeSound( buttonInnerHTML );
+        buttonAnimation( buttonInnerHTML );
     } );
 
 // Event listener on the keyboard
 document.addEventListener( "keydown", function ( Event ) 
 {
-    makeSound(Event.key); 
+    makeSound( Event.key );
+    buttonAnimation( Event.key ); 
 } );
 
 // Each key letter to each sound function
-function makeSound(key)
+function makeSound( key )
 {
     switch (key) {
         case "w":
@@ -63,4 +65,15 @@ function makeSound(key)
         default:
             break;
     }
+}
+
+//Adding animations to each button
+function buttonAnimation( currentKey ) 
+{
+    let activeButton = document.querySelector( "." + currentKey );
+    activeButton.classList.add( "pressed" );   //adding the pressed class to activeButton
+
+    //Set a time for the pressed class to be removed    
+    setTimeout( function () { activeButton.classList.remove( "pressed" );} , 200 );    //time im milliseconds
+                
 }
